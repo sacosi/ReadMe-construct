@@ -4,7 +4,7 @@
 This project's goal is to apply the acquired ETL (extract, transform, load) learnings in class to a topic of our choice.<br/>
 Our group has decided to focus this project on the major topic of the moment - Corona Virus / Covid-19.
 
-### Project Team
+### Project Team -Pandas in Pandemic
 - Kendall Marquard
 - Smiti Swain
 - Luis Ramirez
