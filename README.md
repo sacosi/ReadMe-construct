@@ -84,14 +84,13 @@ The data source is an API end point https://covidtracking.com/api/v1/states/dail
 2) Using JSON traversal, desired datapoints were collected and stored in lists.
 3) The data retrived was then stored in a Data Frame.
 
-![US_States_cases_DF.PNG](Images/US_States_cases_DF.PNG)
-
 
 #### Data Transformation:
 1) For the US_States_Cases Table the json data returned from API was not consistent . For example , if for a day there are no positive cases , the json data did not have the key altogether. In order to fix this issue, try - except code bloack was used, when the key is now fund, and store the value as "0".
 2) Converted the date returned by the API from string to Date format.
 
 ![US_States_cases_Transformation.PNG](Images/US_States_cases_Transformation.PNG)
+![US_States_cases_DF.PNG](Images/US_States_cases_DF.PNG)
 
 
 <ins>**Index_prices Table**</ins><br/>
