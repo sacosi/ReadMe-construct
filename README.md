@@ -9,17 +9,17 @@ Our group has decided to focus this project on the major topic of the moment - C
 - Smiti Swain
 - Luis Ramirez
 - Salvador Neves
-- Tejas
+- Tejas Naik
 
 ### ETL:
 
-<< Insert an ETL data flow Diagram >>
+![ETL.PNG](Images/ETL.PNG)
 
 <ins>**Country Table**</ins><br/>
 #### Data Extraction:
 The data source is a json file from https://worldpopulationreview.com/
 
-<<<<< Insert a picture snip of the json file >>>>>>
+![Country_source.PNG](Images/Country_source.PNG)
 
 1) Json library was used to handle the file.
 2) We looped through the json to append the values to arrays previously created. 
@@ -78,21 +78,21 @@ The data source is an API end point https://api.covid19api.com/country/{country}
 #### Data Extraction:
 The data source is an API end point https://covidtracking.com/api/v1/states/daily.json
 
-<<<<< Insert a snip of the API data >>>>>
+![US_States_cases_source.PNG](Images/US_States_cases_source.PNG)
 
 1) Using Requests module, response was received from the API endpoint.
 2) Using JSON traversal, desired datapoints were collected and stored in lists.
 3) The data retrived was then stored in a Data Frame.
 
-<<<<< Insert a snip of the API call code >>>>>
+![US_States_cases_DF.PNG](Images/US_States_cases_DF.PNG)
 
-<<<<< Insert a snip of the Data Frame >>>>>
 
 #### Data Transformation:
 1) For the US_States_Cases Table the json data returned from API was not consistent . For example , if for a day there are no positive cases , the json data did not have the key altogether. In order to fix this issue, try - except code bloack was used, when the key is now fund, and store the value as "0".
 2) Converted the date returned by the API from string to Date format.
 
-<< insert some code snippets >>
+![US_States_cases_Transformation.PNG](Images/US_States_cases_Transformation.PNG)
+
 
 <ins>**Index_prices Table**</ins><br/>
 #### Data Extraction:
@@ -102,15 +102,17 @@ The data source is "yfinance" module, which is a python library that scrapes dat
 2) We created a dictionary to hold the ticker and country code for major world indices.
 2) Using a For loop , and the yfinance module, data was received for each of the ticker passed from the previously cretaed dictionary.
 
-<<<<< Insert a snip of the Data Frame retrived from yahoo >>>>>
+![Ticker_source.PNG](Images/Ticker_source.PNG)
+
 
 #### Data Transformation:
 1) Data Frame returned from yfinance module did not have the Index Ticker, name and County. Using a dictionary converted dataframe and  a for loop to iterate through the dataframe , new columns were added to the main Data Frames. 
 2) Reset Index on the Data Frame, that previously had Date as the index.
 
-<< insert some code snippets >>
+![Ticker_transformation.PNG](Images/Ticker_transformation.PNG)
 
-#### Data Load:
+
+### Data Load:
 
 1) Created tables in postgres database.
 2) Using sqlalchemy create-engine , connection was set up with the postgres database.
